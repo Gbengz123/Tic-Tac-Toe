@@ -1,0 +1,49 @@
+*::after {
+    box-sizing: border-box;
+}
+  
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* dark mode user-agent-styles */
+
+html {
+    color-scheme: dark light;
+}
+
+/* min body height */
+body {
+    min-height: 100vh;
+}
+
+/* responsive images/videos */
+img,
+picture,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+.game-board-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+#game-board{ 
+   width: 400px;
+   height: 400px;
+   display: grid;
+   grid-template-rows: repeat(3, 1fr);
+   grid-template-columns: repeat(3, 1fr); 
+}
+
+.board-cell{
+    border: 1px solid black;
+}
