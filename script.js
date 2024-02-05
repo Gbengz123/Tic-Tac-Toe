@@ -1,5 +1,7 @@
 const gameBoardContainer = document.querySelector('#game-board');
 const boardCells = document.querySelectorAll('.board-cell');
+const display = document.querySelector('.display');
+const restartButton = document.querySelector('button');
 let clickCounter = 0
 
 const playerOne = createplayer('playerOne', 'x');
@@ -50,13 +52,12 @@ const gameBoard = (function (){
             })
 
             if(playerOneWin === true){
-                console.log(straightRow[0], straightRow[1], straightRow[2])
-                console.log(`${playerOne.player} wins!!`)
+                display.textContent = `${playerOne.player} wins!!`
                 gameBoard.gameEnd = true
                 return gameBoard.gameEnd
             }
             if (playerTwoWin === true){
-                console.log(`${playerTwo.player} wins!!`)
+                display.textContent = `${playerTwo.player} wins!!`
                 gameBoard.gameEnd = true
                 return gameBoard.gameEnd
             }
@@ -79,6 +80,9 @@ function createplayer(player, play){
         cell.addEventListener('click', play);
     })    
 
+    restartButton.addEventListener('click', () =>{
+        location.reload()
+    })
 })()
 
 function play(e, index){
@@ -106,7 +110,7 @@ function play(e, index){
 
 function end() {
     if(clickCounter > 8 && gameBoard.gameEnd === false){
-        console.log('its a draw')
+        display.textContent = `ITS A DRAW`
         gameBoard.gameEnd = true
     }
 
